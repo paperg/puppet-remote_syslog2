@@ -1,5 +1,7 @@
 # remote_syslog2
 
+[![Build Status](https://travis-ci.org/netflower/puppet-remote_syslog2.svg)](https://travis-ci.org/netflower/puppet-remote_syslog2)
+
 Puppet module to install and manage [remote_syslog2][remote_syslog2].
 
 ## Usage
