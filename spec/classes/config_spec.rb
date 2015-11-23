@@ -6,7 +6,7 @@ describe 'remote_syslog2::config' do
   context 'on Ubuntu' do
     let(:facts) { {:osfamily => 'Debian', :operatingsystem => 'Ubuntu'} }
 
-    it { should contain_file('/etc/init.d/remote_syslog2').with({
+    it { should contain_file('/etc/init/remote_syslog2.conf').with({
         'content' => /pre-start exec/})
     }
   end

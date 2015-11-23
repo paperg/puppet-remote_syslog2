@@ -14,16 +14,17 @@ class remote_syslog2::params {
   $temp_dir                = '/tmp'
   $version                 = 'v0.13'
   $service_ensure          = 'running'
-  $service_file            = '/etc/init.d/remote_syslog2'
 
   case $::operatingsystem {
     'Ubuntu': {
       $service_provider = upstart
       $service_template = 'remote_syslog2/remote_syslog2.upstart.conf.erb'
+      $service_file     = '/etc/init/remote_syslog2.conf'
     }
     default: {
       $service_provider = undef
       $service_template = 'remote_syslog2/remote_syslog2.init.d.erb'
+      $service_file     = '/etc/init.d/remote_syslog2'
     }
   }
 }
