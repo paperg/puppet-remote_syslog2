@@ -53,5 +53,7 @@ class remote_syslog2 (
     fail('files must be an array with at least one element')
   }
 
-  include remote_syslog2::install, remote_syslog2::config, remote_syslog2::service
+  include remote_syslog2::install,
+          remote_syslog2::config,
+          remote_syslog2::service
 }
