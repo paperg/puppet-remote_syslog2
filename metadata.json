@@ -1,6 +1,6 @@
 {
   "name": "netflower-remote_syslog2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "netflower",
   "summary": "Install and configure Papertrail's remote_syslog2",
   "license": "MIT",
