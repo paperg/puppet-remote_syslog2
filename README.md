@@ -37,7 +37,7 @@ class { 'remote_syslog2':
   config_file             => '/etc/log_files.yml',
   new_file_check_interval => 10,
   temp_dir                => '/tmp',
-  version                 => 'v0.13',
+  version                 => 'v0.16',
   service_ensure          = 'running',
   service_file            = '/etc/init.d/remote_syslog2'
 }

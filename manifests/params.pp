@@ -12,7 +12,7 @@ class remote_syslog2::params {
   $config_file_template    = 'remote_syslog2/log_files.yml.erb'
   $new_file_check_interval = 10
   $temp_dir                = '/tmp'
-  $version                 = 'v0.13'
+  $version                 = 'v0.16'
   $service_ensure          = 'running'
 
   case $::operatingsystem {
