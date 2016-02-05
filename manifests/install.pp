@@ -14,10 +14,13 @@ class remote_syslog2::install inherits remote_syslog2::params {
     destination => $temp_file,
   }
 
+  file { "${remote_syslog2::params::install_dir}/remote_syslog":
+    ensure => directory,
+  } ->
   exec { 'unzip_remote_syslog2':
     command     => "tar -zxf ${temp_file}",
     cwd         => $remote_syslog2::params::install_dir,
-    creates     => "${remote_syslog2::params::install_dir}/remote_syslog",
+    creates     => "${remote_syslog2::params::install_dir}/remote_syslog/remote_syslog",
     subscribe   => Wget::Fetch[$url],
     refreshonly => true,
   }
