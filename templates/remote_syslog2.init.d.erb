@@ -32,7 +32,20 @@ PATH=/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
 RETVAL=0
 
 is_running(){
-  [ -e $pid_file ]
+  # Do we have PID-file?
+  if [ -f "$pid_file" ]; then
+    # Check if proc is running
+    pid=`cat "$pid_file" 2> /dev/null`
+    if [[ $pid != "" ]]; then
+      exepath=`readlink /proc/"$pid"/exe 2> /dev/null`
+      exe=`basename "$exepath"`
+      if [[ $exe == "remote_syslog" ]] || [[ $exe == "remote_syslog (deleted)" ]]; then
+        # Process is running
+        return 0
+      fi
+    fi
+  fi
+  return 1
 }
 
 start(){
